@@ -70,7 +70,7 @@ $(document).ready(function() {
 	$('#signUpBtn').on('click', function() {
 		let loginId = $('#loginId').val().trim();
 		if (loginId == '') {
-			alert("아이드를 입력해주세요");
+			alert("아이디를 입력해주세요");
 			return;
 		}
 		
