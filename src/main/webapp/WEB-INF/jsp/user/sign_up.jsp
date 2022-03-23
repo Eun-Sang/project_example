@@ -51,7 +51,7 @@ $(document).ready(function() {
 		}
 		
 		$.ajax({
-			url: "/user/is_duplication_id"
+			url: "/user/is_duplicated_id"
 			, data: {"loginId": loginId}
 			, success: function(data) {
 				if (data.result) {	// 중복인 경우

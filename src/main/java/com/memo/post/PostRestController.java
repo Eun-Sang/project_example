@@ -33,11 +33,14 @@ public class PostRestController {
 		String userLoginId = (String) session.getAttribute("userLoginId");
 		
 		// BO create
-		postBO.addPost(userLoginId, userId, subject, userLoginId, file);
+		int row = postBO.addPost(userLoginId, userId, subject, userLoginId, file);
 		
 		Map<String, Object> result = new HashMap<>();
 		result.put("result", "success");
-		
+		if (row < 1) {
+			result.put("result", "error");
+			result.put("error", "error_message");
+		}
 		return result;
 	}
 }
