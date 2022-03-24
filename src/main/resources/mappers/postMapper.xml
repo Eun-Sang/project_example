@@ -18,6 +18,23 @@
 			`id`= #{id} 	
  	</select>
  	
+ 	<select id="selectPostById" parameterType="int" resultType="com.memo.post.model.Post">
+ 		SELECT
+	 		`id`
+			,`userId`
+			,`subject`
+			,`content`
+			,`imagePath`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`post`
+		WHERE
+			`id`= #{postId} 
+ 	
+ 	
+ 	</select>
+ 	
  	<insert id="insertPost" parameterType="map">
  		INSERT
  		(

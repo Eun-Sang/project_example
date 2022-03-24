@@ -117,7 +117,8 @@ $(document).ready(function() {
 		// 2. ajax
 		let url = $('#signUpForm').attr('action')	; // form에 있는 action 주소 가져오기
 		let params = $('#signUpForm').serialize();	  // form 태그에 있는 값들을 한번에 보낼 수 있게 한다.
-		consol.log(params);
+		
+		//consol.log(params);
 		
 		$.post(url, params)
 		.done(function(data) {

@@ -24,6 +24,10 @@ public class PostBO {
 		return postDAO.selectPostListByUserId(userId);
 	}
 	
+	public Post getPostById(int postId) {
+		return postDAO.selectPostById(postId);
+	}
+	
 	public int addPost(String loginId, int userId, 
 			String subject, String content, MultipartFile file) {
 		
