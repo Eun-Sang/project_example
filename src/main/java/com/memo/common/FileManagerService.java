@@ -34,7 +34,23 @@ public class FileManagerService {
 		Path path = Paths.get(filePath + file.getOriginalFilename());
 		Files.write(path, bytes);
 		
-		
 		return "/images/" + directoryName + file.getOriginalFilename();
+	}
+	
+	// 파일 삭제
+	// input: imagePath
+	// output: x
+	public void deleteFile(String imagePath) throws IOException {
+		Path path = Paths.get(FILE_UPLOAD_PATH + imagePath.replace("/images/", ""));
+		// 이미지 삭제
+		if (Files.exists(path)) {
+			Files.delete(path);
+		}
+		
+		// 디렉토리(폴더) 삭제
+ 		path = path.getParent();
+ 		if (Files.exists(path)) {
+ 			Files.delete(path);
+ 		}
 	}
 }
