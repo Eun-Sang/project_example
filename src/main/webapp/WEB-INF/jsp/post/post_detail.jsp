@@ -14,6 +14,28 @@
 
 <script>
 $(document).ready(function() {
+	// 삭제 버튼 클릭
+	$('#postDeleteBtn').on('click', function() {
+		let postId = $(this).data('post-id');
+		
+		$.ajax({
+			type: "delete"
+			, url: "/post/delete"
+			, data: {"postId" : postId}
+			, success: function(data) {
+				if (data.result == "success") {
+					alert("삭제되었습니다.");
+					location.href = "/post/post_list_view";
+				} else {
+					alert(data.error_message);
+				}
+			}
+			, error : function(e) {
+				alert("메모를 삭제하는데 실패 했습니다.");
+			}
+		});
+	});
+	
 	// 목록 버튼 클릭
 	$('postListBtn').on('click', function() {
 		location.href = "/post/post_list_view";
